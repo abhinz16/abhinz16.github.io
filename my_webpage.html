@@ -1,0 +1,1020 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Abhinav Abraham</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --bg:#F7F6F3;
+  --bg2:#EEECEA;
+  --bg3:#FFFFFF;
+  --navy:#1A2035;
+  --navy2:#2C3654;
+  --blue:#2563EB;
+  --blue-dim:rgba(37,99,235,0.09);
+  --blue-mid:rgba(37,99,235,0.18);
+  --text:#1A2035;
+  --muted:#6B7280;
+  --rule:#D8D6D0;
+  --white:#FFFFFF;
+}
+html{scroll-behavior:smooth;}
+body{
+  background:var(--bg);
+  color:var(--text);
+  font-family:'Times New Roman',Times,serif;
+  font-size:16px;
+  line-height:1.7;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+/* ---- TYPOGRAPHY ---- */
+.serif{font-family:'Times New Roman',Times,serif;}
+
+/* ---- NAV ---- */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:200;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 clamp(1.5rem,5vw,5rem);
+  height:62px;
+  background:rgba(247,246,243,0.92);
+  backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--rule);
+}
+.nav-logo{
+  font-family:'Times New Roman',Times,serif;
+  font-size:1.15rem;font-weight:400;
+  color:var(--navy);text-decoration:none;letter-spacing:0.01em;
+}
+.nav-links{display:flex;gap:2rem;list-style:none;}
+.nav-links a{
+  color:var(--muted);text-decoration:none;font-size:0.78rem;
+  font-weight:400;letter-spacing:0.06em;text-transform:uppercase;
+  font-family:'Times New Roman',Times,serif;
+  transition:color 0.2s;
+}
+.nav-links a:hover{color:var(--blue);}
+
+/* ---- LAYOUT ---- */
+section{
+  position:relative;z-index:1;
+  max-width:960px;margin:0 auto;
+  padding:clamp(4.5rem,9vw,8rem) clamp(1.5rem,5vw,2.5rem);
+}
+.section-center{text-align:center;}
+hr.rule{border:none;border-top:1px solid var(--rule);margin:0 clamp(1.5rem,5vw,2.5rem);}
+
+/* ---- HERO ---- */
+#hero-wrap{position:relative;overflow:hidden;background:var(--navy);min-height:100vh;}
+#hero-canvas{position:absolute;top:0;left:0;width:100%;height:100%;z-index:0;}
+#hero{
+  position:relative;z-index:1;
+  min-height:100vh;display:flex;flex-direction:column;
+  justify-content:center;align-items:center;text-align:center;
+  padding:80px clamp(1.5rem,5vw,3rem) 4rem;
+  max-width:860px;margin:0 auto;
+}
+.hero-eyebrow{
+  display:inline-flex;align-items:center;gap:0.6rem;
+  font-size:0.72rem;letter-spacing:0.16em;text-transform:uppercase;
+  color:rgba(255,255,255,0.55);font-weight:500;margin-bottom:1.6rem;
+}
+.hero-eyebrow-dot{width:5px;height:5px;border-radius:50%;background:var(--blue);display:inline-block;}
+.hero-name{
+  font-family:'Times New Roman',Times,serif;
+  font-size:clamp(3.4rem,9vw,7rem);
+  line-height:1.0;color:#FFFFFF;
+  margin-bottom:1.8rem;letter-spacing:-0.01em;
+}
+.hero-role{
+  font-size:clamp(1rem,2vw,1.18rem);color:rgba(255,255,255,0.6);
+  margin-bottom:1.4rem;font-weight:400;letter-spacing:0.02em;
+  font-family:'Times New Roman',Times,serif;
+  min-height:1.8em;
+}
+.hero-role-word{display:inline-block;transition:opacity 0.4s,transform 0.4s;}
+.hero-tagline{
+  font-size:clamp(1.05rem,2vw,1.25rem);color:rgba(255,255,255,0.9);
+  max-width:620px;margin:0 auto 2.6rem;font-weight:400;line-height:1.75;
+  font-family:'Times New Roman',Times,serif;font-style:italic;
+}
+.hero-chips{display:flex;flex-wrap:wrap;gap:0.5rem;justify-content:center;margin-bottom:3rem;}
+.chip{
+  font-size:0.72rem;letter-spacing:0.05em;text-transform:uppercase;font-weight:400;
+  font-family:'Times New Roman',Times,serif;
+  padding:0.3rem 0.8rem;border-radius:100px;border:1px solid;
+  transition:background 0.2s,color 0.2s;
+}
+.chip-light{color:rgba(255,255,255,0.75);border-color:rgba(255,255,255,0.2);background:rgba(255,255,255,0.06);}
+.chip-blue{color:#93C5FD;border-color:rgba(37,99,235,0.5);background:rgba(37,99,235,0.15);}
+.hero-scroll{
+  display:inline-flex;flex-direction:column;align-items:center;gap:0.5rem;
+  color:rgba(255,255,255,0.35);font-size:0.72rem;letter-spacing:0.1em;
+  text-transform:uppercase;text-decoration:none;margin-top:1rem;
+}
+.scroll-arrow{
+  width:24px;height:24px;border:1px solid rgba(255,255,255,0.2);
+  border-radius:50%;display:flex;align-items:center;justify-content:center;
+  animation:bounce 2s ease-in-out infinite;
+}
+@keyframes bounce{0%,100%{transform:translateY(0);}50%{transform:translateY(5px);}}
+
+/* ---- SECTION HEADERS ---- */
+.sec-eyebrow{
+  font-size:0.68rem;letter-spacing:0.18em;text-transform:uppercase;
+  color:var(--blue);font-weight:600;margin-bottom:0.8rem;
+}
+.sec-title{
+  font-family:'Times New Roman',Times,serif;
+  font-size:clamp(2rem,4.5vw,3.2rem);line-height:1.1;
+  color:var(--navy);margin-bottom:2.8rem;
+}
+.sec-title em{color:var(--blue);font-style:italic;}
+
+/* ---- ABOUT ---- */
+.about-cols{display:grid;grid-template-columns:1fr 1fr;gap:4rem;}
+@media(max-width:680px){.about-cols{grid-template-columns:1fr;gap:2rem;}}
+.about-body{font-size:0.94rem;color:var(--muted);line-height:1.9;text-align:justify;}
+.about-body p+p{margin-top:1rem;}
+.about-body strong{color:var(--navy);}
+.about-right{display:flex;flex-direction:column;gap:1.4rem;}
+.about-card{
+  background:var(--white);border:1px solid var(--rule);border-radius:10px;
+  padding:1.3rem 1.5rem;
+  border-left:3px solid var(--blue);
+  transition:box-shadow 0.25s;
+}
+.about-card:hover{box-shadow:0 4px 20px rgba(37,99,235,0.1);}
+.about-card-label{font-size:0.66rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--blue);font-weight:600;margin-bottom:0.3rem;}
+.about-card-text{font-size:0.88rem;color:var(--muted);line-height:1.6;}
+.about-card-text strong{color:var(--navy);}
+
+/* ---- EXPERIENCE TIMELINE ---- */
+.timeline{display:flex;flex-direction:column;gap:0;}
+.tl-item{display:grid;grid-template-columns:160px 1fr;gap:0 2.5rem;position:relative;}
+.tl-item+.tl-item{margin-top:2.5rem;}
+.tl-left{text-align:right;padding-top:0.15rem;position:relative;}
+.tl-left::after{
+  content:'';position:absolute;top:0.5rem;right:-1.35rem;
+  width:1px;background:var(--rule);bottom:-2.5rem;
+}
+.tl-item:last-child .tl-left::after{display:none;}
+.tl-dot{
+  position:absolute;top:0.35rem;right:-1.75rem;
+  width:9px;height:9px;border-radius:50%;
+  background:var(--blue);border:2px solid var(--bg);
+  z-index:2;
+}
+.tl-date{font-size:0.75rem;color:var(--muted);letter-spacing:0.04em;line-height:1.4;}
+.tl-org{font-size:0.72rem;color:var(--blue);font-weight:600;letter-spacing:0.06em;margin-top:0.3rem;}
+.tl-right{padding-bottom:0;}
+.tl-role{
+  font-family:'Times New Roman',Times,serif;
+  font-size:1.2rem;color:var(--navy);margin-bottom:0.4rem;line-height:1.25;
+}
+.tl-tag-row{display:flex;flex-wrap:wrap;gap:0.3rem;margin-bottom:0.85rem;}
+.tl-tag{
+  font-size:0.67rem;letter-spacing:0.07em;text-transform:uppercase;font-weight:500;
+  padding:0.15rem 0.55rem;border-radius:4px;
+  background:var(--blue-dim);color:var(--blue);border:1px solid var(--blue-mid);
+}
+.tl-bullets{list-style:none;display:flex;flex-direction:column;gap:0.55rem;}
+.tl-bullets li{
+  font-size:0.87rem;color:var(--muted);line-height:1.75;
+  padding-left:1.1rem;position:relative;text-align:justify;
+}
+.tl-bullets li::before{content:'—';position:absolute;left:0;color:var(--blue);font-size:0.8rem;}
+@media(max-width:600px){
+  .tl-item{grid-template-columns:1fr;}
+  .tl-left{text-align:left;padding-bottom:0.4rem;}
+  .tl-left::after{display:none;}
+  .tl-dot{display:none;}
+}
+
+/* ---- PROJECT CARDS ---- */
+.proj-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1.4rem;}
+.proj-card{
+  background:var(--white);border:1px solid var(--rule);border-radius:10px;
+  padding:1.6rem;display:flex;flex-direction:column;
+  transition:box-shadow 0.25s,transform 0.2s,border-color 0.25s;
+  position:relative;overflow:hidden;
+}
+.proj-card::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:3px;
+  background:linear-gradient(90deg,var(--blue),#818CF8);
+  opacity:0;transition:opacity 0.25s;
+}
+.proj-card:hover{box-shadow:0 8px 30px rgba(37,99,235,0.12);transform:translateY(-3px);border-color:rgba(37,99,235,0.25);}
+.proj-card:hover::before{opacity:1;}
+.proj-icon{width:40px;height:40px;border-radius:8px;background:var(--blue-dim);display:flex;align-items:center;justify-content:center;margin-bottom:1rem;}
+.proj-icon svg{width:20px;height:20px;stroke:var(--blue);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;}
+.proj-title{font-family:'Times New Roman',Times,serif;font-size:1.08rem;color:var(--navy);margin-bottom:0.5rem;line-height:1.3;}
+.proj-body{font-size:0.84rem;color:var(--muted);line-height:1.78;flex:1;text-align:justify;}
+.proj-tags{display:flex;flex-wrap:wrap;gap:0.3rem;margin-top:1rem;}
+.proj-tag{font-size:0.68rem;color:var(--muted);border:1px solid var(--rule);border-radius:4px;padding:0.13rem 0.45rem;background:var(--bg);}
+
+/* ---- SKILLS ---- */
+.skills-outer{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:1.2rem;}
+.skill-group{background:var(--white);border:1px solid var(--rule);border-radius:10px;padding:1.2rem;}
+.skill-group-title{font-size:0.66rem;letter-spacing:0.13em;text-transform:uppercase;color:var(--blue);font-weight:700;margin-bottom:0.85rem;}
+.skill-tags{display:flex;flex-wrap:wrap;gap:0.3rem;}
+.skill-tag{font-size:0.73rem;color:var(--muted);border:1px solid var(--rule);border-radius:4px;padding:0.16rem 0.48rem;background:var(--bg);transition:color 0.2s,border-color 0.2s;}
+.skill-tag:hover{color:var(--navy);border-color:rgba(37,99,235,0.35);}
+
+/* ---- PUBLICATIONS ---- */
+.pub-year-head{
+  font-family:'Times New Roman',Times,serif;
+  font-size:1.2rem;color:var(--navy);
+  margin-bottom:0.9rem;margin-top:2rem;
+  display:flex;align-items:center;gap:1rem;
+}
+.pub-year-head:first-child{margin-top:0;}
+.pub-year-head::after{content:'';flex:1;height:1px;background:var(--rule);}
+.pub-list{list-style:none;display:flex;flex-direction:column;gap:0.9rem;}
+.pub-item{
+  display:flex;gap:1rem;padding:0.9rem 1.1rem;
+  background:var(--white);border:1px solid var(--rule);border-radius:7px;
+  transition:border-color 0.2s,box-shadow 0.2s;
+}
+.pub-item:hover{border-color:rgba(37,99,235,0.3);box-shadow:0 2px 12px rgba(37,99,235,0.07);}
+.pub-num{font-size:0.7rem;color:var(--blue);font-weight:700;min-width:1rem;padding-top:0.2rem;}
+.pub-body{font-size:0.85rem;color:var(--muted);line-height:1.78;text-align:justify;}
+.pub-title{color:var(--navy);font-style:italic;}
+.pub-link{color:var(--blue);text-decoration:none;font-size:0.75rem;font-weight:600;border-bottom:1px solid transparent;transition:border-color 0.2s;}
+.pub-link:hover{border-color:var(--blue);}
+
+/* ---- EDUCATION ---- */
+.edu-list{display:flex;flex-direction:column;gap:1rem;}
+.edu-item{
+  background:var(--white);border:1px solid var(--rule);border-radius:10px;
+  padding:1.2rem 1.5rem;
+  display:flex;align-items:center;justify-content:space-between;gap:1rem;
+  transition:border-color 0.2s,box-shadow 0.2s;
+}
+.edu-item:hover{border-color:rgba(37,99,235,0.25);box-shadow:0 2px 14px rgba(37,99,235,0.07);}
+.edu-degree{font-family:'Times New Roman',Times,serif;font-size:1.05rem;color:var(--navy);}
+.edu-school{font-size:0.82rem;color:var(--muted);margin-top:0.2rem;}
+.edu-dates{font-size:0.75rem;color:var(--muted);white-space:nowrap;text-align:right;}
+
+/* ---- HOBBIES ---- */
+.hobbies-row{display:flex;flex-wrap:wrap;gap:2.5rem;justify-content:center;margin-top:1rem;}
+.hobby{display:flex;flex-direction:column;align-items:center;gap:0.9rem;cursor:default;}
+.hobby-icon{
+  width:90px;height:90px;border-radius:50%;
+  background:var(--white);border:1.5px solid var(--rule);
+  display:flex;align-items:center;justify-content:center;
+  transition:border-color 0.3s,box-shadow 0.3s,transform 0.3s;
+  position:relative;overflow:hidden;
+}
+.hobby-icon::after{
+  content:'';position:absolute;inset:0;border-radius:50%;
+  background:var(--blue-dim);opacity:0;transition:opacity 0.3s;
+}
+.hobby:hover .hobby-icon{border-color:var(--blue);box-shadow:0 6px 24px rgba(37,99,235,0.15);transform:translateY(-4px);}
+.hobby:hover .hobby-icon::after{opacity:1;}
+.hobby-icon svg{width:40px;height:40px;position:relative;z-index:1;}
+.hobby-name{font-size:0.75rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);font-weight:500;}
+
+/* ---- CONTACT ---- */
+.contact-wrap{
+  background:var(--navy);border-radius:16px;padding:3.5rem clamp(2rem,5vw,4rem);
+  display:flex;flex-wrap:wrap;gap:3rem;align-items:flex-start;
+}
+.contact-left{flex:1;min-width:220px;}
+.contact-hed{
+  font-family:'Times New Roman',Times,serif;
+  font-size:clamp(1.8rem,3.5vw,2.6rem);color:#FFFFFF;
+  margin-bottom:1rem;line-height:1.15;
+}
+.contact-sub{font-size:0.9rem;color:rgba(255,255,255,0.5);line-height:1.8;margin-bottom:1.8rem;text-align:justify;}
+.avail-badge{
+  display:inline-flex;align-items:center;gap:0.6rem;
+  border:1px solid rgba(37,99,235,0.5);border-radius:100px;
+  padding:0.5rem 1rem;font-size:0.77rem;
+  color:#93C5FD;background:rgba(37,99,235,0.15);letter-spacing:0.04em;
+}
+.avail-dot{width:7px;height:7px;border-radius:50%;background:#60A5FA;animation:gpulse 2s ease-in-out infinite;}
+@keyframes gpulse{0%,100%{opacity:1;box-shadow:0 0 0 0 rgba(96,165,250,0.5);}50%{opacity:0.5;box-shadow:0 0 0 5px rgba(96,165,250,0);}}
+.contact-right{flex:1;min-width:220px;display:flex;flex-direction:column;gap:0.55rem;}
+.contact-icon{display:flex;align-items:center;flex-shrink:0;}
+.contact-link-item{
+  display:flex;align-items:center;gap:0.9rem;
+  padding:0.6rem 0.9rem;border-radius:7px;
+  border:1px solid rgba(255,255,255,0.1);background:rgba(255,255,255,0.04);
+  transition:border-color 0.2s,background 0.2s;
+}
+.contact-link-item:hover{border-color:rgba(37,99,235,0.5);background:rgba(37,99,235,0.08);}
+.contact-link-item:hover .contact-icon svg{stroke:rgba(147,197,253,0.9);}
+.contact-link-label{font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.35);min-width:58px;font-weight:500;}
+.contact-link-val{color:rgba(255,255,255,0.8);text-decoration:none;font-size:0.84rem;transition:color 0.2s;}
+.contact-link-val:hover{color:#93C5FD;}
+
+/* ---- FOOTER ---- */
+footer{text-align:center;padding:2rem;font-size:0.74rem;color:var(--muted);border-top:1px solid var(--rule);letter-spacing:0.04em;}
+
+/* ---- ANIMATIONS ---- */
+.fade-up{opacity:0;transform:translateY(28px);transition:opacity 0.7s ease,transform 0.7s ease;}
+.fade-up.visible{opacity:1;transform:none;}
+.fade-up-d1{transition-delay:0.1s;}
+.fade-up-d2{transition-delay:0.2s;}
+.fade-up-d3{transition-delay:0.3s;}
+
+@media(prefers-reduced-motion:reduce){
+  .fade-up{opacity:1;transform:none;transition:none;}
+  .scroll-arrow{animation:none;}
+  .avail-dot{animation:none;}
+}
+@media(max-width:500px){.hero-name{white-space:normal;}.nav-links{gap:1rem;}}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="#">Abhinav Abraham</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#publications">Publications</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<div id="hero-wrap">
+  <canvas id="hero-canvas"></canvas>
+  <div id="hero">
+    <div class="hero-eyebrow"><span class="hero-eyebrow-dot"></span>Ph.D. Candidate - University of Illinois Chicago<span class="hero-eyebrow-dot"></span></div>
+    <h1 class="hero-name serif">Abhinav Abraham</h1>
+    <p class="hero-role" id="hero-role-text">Autonomous Systems - AI - Robotics - Engineering</p>
+    <p class="hero-tagline">I am an engineer with a passion for building systems that sense, decide, and act - from custom hardware and embedded electronics to machine learning pipelines and autonomous navigation stacks. Whether it is designing a ruggedized sensor from scratch, training a perception model, or shipping a ROS 2 navigation benchmark, I care about the full stack: hands in the hardware and eyes on the data.</p>
+    <div class="hero-chips">
+      <span class="chip chip-blue">Autonomous Systems</span>
+      <span class="chip chip-blue">Sensor Design</span>
+      <span class="chip chip-blue">Computer Vision</span>
+      <span class="chip chip-light">Machine Learning</span>
+      <span class="chip chip-light">Embedded Electronics</span>
+      <span class="chip chip-light">Agentic AI</span>
+      <span class="chip chip-blue">State Estimation</span>
+    </div>
+    <a class="hero-scroll" href="#about">
+      <span>Scroll</span>
+      <span class="scroll-arrow">
+        <svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="1.5"><path d="M2 4l3 3 3-3"/></svg>
+      </span>
+    </a>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-center fade-up">
+    <div class="sec-eyebrow">About</div>
+    <h2 class="sec-title">Engineer &amp; <em>Builder</em></h2>
+  </div>
+  <div class="about-cols">
+    <div class="about-body fade-up fade-up-d1">
+      <p>I am Abhinav Abraham, an engineer with a passion for building systems that sit at the intersection of <strong>autonomous systems, machine learning, and physical hardware</strong>. From designing ruggedized sensor packages with custom PCBs and machined enclosures to training perception models and shipping navigation stacks in ROS 2, I enjoy tackling problems where hardware and software have to work together under real constraints.</p>
+      <p>My Ph.D. research at the University of Illinois Chicago spans closed-loop control, real-time ML inference pipelines, embedded electronics, and multi-modal sensing - carried out in a DoD-funded program alongside UW-Madison and the U.S. Army Research Laboratory. I have field-deployed a sensor I built inline with a running engine test cell, designed the PCB that controls it, and written the ML pipeline that processes its output in under six seconds.</p>
+      <p>During my M.S., I built a fully autonomous robotic control system - fluorescence microscopy feeding an ML classifier commanding a robotic actuator, with no human in the loop. That architecture has stayed with me as a design principle: sense, decide, act, repeat.</p>
+      <p>Outside formal research, I build agentic AI pipelines, ROS 2 navigation stacks, EKF state estimators from real UAV flight data, and computer vision benchmarks - all on GitHub.</p>
+    </div>
+    <div class="about-right fade-up fade-up-d2">
+      <div class="about-card">
+        <div class="about-card-label">Autonomous Systems</div>
+        <div class="about-card-text">Navigation stacks, state estimation, closed-loop perception and control - from simulation to field deployment.</div>
+      </div>
+      <div class="about-card">
+        <div class="about-card-label">Machine Learning &amp; AI</div>
+        <div class="about-card-text">End-to-end pipelines from data acquisition through inference. CNNs, EKF, ensemble methods, LLM agents, RAG systems.</div>
+      </div>
+      <div class="about-card">
+        <div class="about-card-label">Hardware &amp; Electronics</div>
+        <div class="about-card-text">Custom sensor systems built from the ground up - machined enclosures, PCB design, microcontrollers, embedded control, and field validation under military standards.</div>
+      </div>
+      <div class="about-card">
+        <div class="about-card-label">Mechanical Engineering</div>
+        <div class="about-card-text">Precision mechanical design, optical alignment, high-pressure fluidic systems, SolidWorks, and hands-on fabrication and assembly.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="rule">
+
+<!-- EXPERIENCE TIMELINE -->
+<section id="experience">
+  <div class="section-center fade-up">
+    <div class="sec-eyebrow">Experience</div>
+    <h2 class="sec-title">Research &amp; <em>Engineering</em></h2>
+  </div>
+  <div class="timeline">
+
+    <div class="tl-item fade-up">
+      <div class="tl-left">
+        <div class="tl-dot"></div>
+        <div class="tl-date">Jan 2021 &ndash; Present</div>
+        <div class="tl-org">Lynch Lab, UIC</div>
+      </div>
+      <div class="tl-right">
+        <div class="tl-role">Research Engineer - Robotics, ML &amp; Sensing</div>
+        <div class="tl-tag-row">
+          <span class="tl-tag">DoD VICTOR Program</span>
+          <span class="tl-tag">UW-Madison</span>
+          <span class="tl-tag">U.S. Army CCDC-ARL</span>
+        </div>
+        <ul class="tl-bullets">
+          <li>Co-designed a compact ruggedized sensor system (70 x 131 x 84 mm, 890 g) alongside one other engineer - machined aluminum flow cell with optical windows, sealing faces, and fluidic ports; full sensor package assembly integrating a spectrometer, pump, solenoid valves, CCD array, single-board processor, and signal conditioning electronics. MIL-STD-810 and MIL-STD-461 compliant. Pressure tested at 103.4 kPag. Deployed inline with a running engine test cell at UW-Madison.</li>
+          <li>Designed custom PCB (KiCad) integrated with NI DAQ for test bench automation: solenoid valve sequencing, diagnostic trigger synchronization, and real-time data acquisition - eliminated manual triggering errors from high-pressure test cycles.</li>
+          <li>Built end-to-end real-time ML inference pipeline: automated spectral preprocessing, chemometric feature extraction, multi-model regression (MLR, SVR, random forest, gradient boosting, CNN, ensemble methods with bootstrap aggregation and stacking); real-time output under 6 seconds, under 10% error on out-of-distribution real-world samples. FastAPI backend with operator GUI. Patent pending 2026.</li>
+          <li>Built gravimetric mixture preparation apparatus (±0.05 g accuracy) for formulating 79 surrogate blends from 23 pure components; designed a custom modular spectrometer with interchangeable diffraction grating, Astrolab CCD array, machined mounts, and alignment stages.</li>
+          <li>Developed ML framework predicting full spectral signatures directly from SMILES strings and composition fractions (ElasticNet + PCA, 99.9% variance retained); test R&#178; 0.979 mean / 0.996 median on 120 held-out samples, challenge set R&#178; 0.995 on 41 unseen mixtures. Manuscript in preparation.</li>
+          <li>Built physics-constrained spectral modeling pipeline combining DFT-computed reference spectra (Gaussian16 on HPC) with Indirect Hard Modeling; automated anomaly flagging; sub-5% reconstruction error. Published: Chemometrics and Intelligent Laboratory Systems (2025).</li>
+          <li>Developed automated emission spectroscopy pipeline with ab initio calibration and quality gating across thousands of spectra; ±100 K accuracy. Peters Fellowship 2022. Published: Proceedings of the Combustion Institute (2023).</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="tl-item fade-up fade-up-d1">
+      <div class="tl-left">
+        <div class="tl-dot"></div>
+        <div class="tl-date">Jan 2019 &ndash; Jan 2020</div>
+        <div class="tl-org">Biomicrosystems Lab, UIC</div>
+      </div>
+      <div class="tl-right">
+        <div class="tl-role">Research Engineer - Autonomous Robotic Control</div>
+        <div class="tl-tag-row">
+          <span class="tl-tag">M.S. Research</span>
+          <span class="tl-tag">Closed-Loop Robotics</span>
+        </div>
+        <ul class="tl-bullets">
+          <li>Built a fully autonomous closed-loop robotic control system: fluorescence microscopy image sequences fed an ML classifier predicting movement intent in real time; model output commanded a robotic actuator with no human in the loop - a full perception-to-actuation pipeline functionally equivalent to teleoperation with ML replacing the human operator. Published: BioChip Journal (2021).</li>
+          <li>Designed and fabricated microfluidic immobilization platforms with precision channel geometry and 3D-printed fixtures; built optical alignment stages for microscopy; developed automated image analysis pipelines (segmentation, object tracking, micro-PIV flow field extraction) reducing manual analysis time by approximately 70%.</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<hr class="rule">
+
+<!-- GITHUB PROJECTS -->
+<section id="projects">
+  <div class="section-center fade-up">
+    <div class="sec-eyebrow">Projects</div>
+    <h2 class="sec-title">Shipped to <em>GitHub</em></h2>
+  </div>
+  <div class="proj-grid">
+
+    <div class="proj-card fade-up">
+      <div class="proj-icon">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 2v4M12 18v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M2 12h4M18 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
+      </div>
+      <div class="proj-title">ROS 2 Autonomous Delivery Robot Benchmark</div>
+      <div class="proj-body">ROS 2 Jazzy navigation stack benchmarked on OpenLORIS, MIT Stata Center, and BARN real-world datasets. Nodes for mission management, route planning, obstacle monitoring, and state estimation. Global planner with replanning, quantitative metrics (completion rate, path length, navigation efficiency), RViz visualization.</div>
+      <div class="proj-tags">
+        <span class="proj-tag">ROS 2 Jazzy</span>
+        <span class="proj-tag">Nav2</span>
+        <span class="proj-tag">Path Planning</span>
+        <span class="proj-tag">RViz</span>
+        <span class="proj-tag">Python</span>
+      </div>
+    </div>
+
+    <div class="proj-card fade-up fade-up-d1">
+      <div class="proj-icon">
+        <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+      </div>
+      <div class="proj-title">3D Drone State Estimation with EKF Sensor Fusion</div>
+      <div class="proj-body">Extended Kalman Filter fusing GPS, IMU, and barometric altitude for UAV state estimation. Real PX4 flight log data with coordinate transformation and preprocessing. Adaptive measurement gating, outlier rejection, Monte Carlo robustness evaluation across sensor failure scenarios. RMSE and trajectory deviation metrics, interactive 3D visualization.</div>
+      <div class="proj-tags">
+        <span class="proj-tag">EKF</span>
+        <span class="proj-tag">PX4</span>
+        <span class="proj-tag">Sensor Fusion</span>
+        <span class="proj-tag">Monte Carlo</span>
+        <span class="proj-tag">Python</span>
+      </div>
+    </div>
+
+    <div class="proj-card fade-up fade-up-d2">
+      <div class="proj-icon">
+        <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/><circle cx="12" cy="10" r="3"/></svg>
+      </div>
+      <div class="proj-title">Traffic Sign Recognition &amp; Robustness Benchmark</div>
+      <div class="proj-body">CNN, ResNet, and EfficientNet trained on GTSRB, Belgium, and Mapillary datasets. GPU training with mixed precision and weighted sampling for class imbalance. Grad-CAM explainability, cross-dataset generalization, calibration plots, failure case analysis, and robustness evaluation under image corruption and adverse weather conditions.</div>
+      <div class="proj-tags">
+        <span class="proj-tag">PyTorch</span>
+        <span class="proj-tag">ResNet</span>
+        <span class="proj-tag">EfficientNet</span>
+        <span class="proj-tag">Grad-CAM</span>
+        <span class="proj-tag">Mixed Precision</span>
+      </div>
+    </div>
+
+    <div class="proj-card fade-up fade-up-d3">
+      <div class="proj-icon">
+        <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+      </div>
+      <div class="proj-title">Agentic AI &amp; LLM Tooling</div>
+      <div class="proj-body">RAG pipeline prototyping and spectral database querying, MCP server implementation for agentic tool use, LLM API integration (Anthropic, OpenAI) with prompt chaining and structured output extraction. Tkinter desktop GUI with Playwright browser automation for form-filling &mdash; never auto-submits. FastAPI backend, Docker-containerized services.</div>
+      <div class="proj-tags">
+        <span class="proj-tag">RAG</span>
+        <span class="proj-tag">MCP</span>
+        <span class="proj-tag">FastAPI</span>
+        <span class="proj-tag">Playwright</span>
+        <span class="proj-tag">Docker</span>
+      </div>
+    </div>
+
+    <div class="proj-card fade-up">
+      <div class="proj-icon">
+        <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 100 20 10 10 0 000-20zM2 12h20M12 2a15.3 15.3 0 010 20M12 2a15.3 15.3 0 000 20"/></svg>
+      </div>
+      <div class="proj-title">Transformer Language Model from Scratch</div>
+      <div class="proj-body">In-progress implementation covering multi-head self-attention, positional encoding, layer normalization, and the full training loop. Built to understand the complete architecture end-to-end. Personal project, clearly labeled as in progress.</div>
+      <div class="proj-tags">
+        <span class="proj-tag">PyTorch</span>
+        <span class="proj-tag">Attention</span>
+        <span class="proj-tag">Transformers</span>
+        <span class="proj-tag">In Progress</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<hr class="rule">
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="section-center fade-up">
+    <div class="sec-eyebrow">Skills</div>
+    <h2 class="sec-title">Technical <em>Background</em></h2>
+  </div>
+  <div class="skills-outer fade-up fade-up-d1">
+    <div class="skill-group">
+      <div class="skill-group-title">Mechanical &amp; Hardware Design</div>
+      <div class="skill-tags">
+        <span class="skill-tag">SolidWorks</span>
+        <span class="skill-tag">PCB Design (KiCad)</span>
+        <span class="skill-tag">Machined Enclosures</span>
+        <span class="skill-tag">Optical Alignment</span>
+        <span class="skill-tag">Fluidic Systems</span>
+        <span class="skill-tag">NI DAQ</span>
+        <span class="skill-tag">FEA (familiar)</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <div class="skill-group-title">Embedded &amp; Instrumentation</div>
+      <div class="skill-tags">
+        <span class="skill-tag">Microcontrollers</span>
+        <span class="skill-tag">Single-Board Computers</span>
+        <span class="skill-tag">Signal Conditioning</span>
+        <span class="skill-tag">Sensor Integration</span>
+        <span class="skill-tag">MIL-STD-810</span>
+        <span class="skill-tag">MIL-STD-461</span>
+        <span class="skill-tag">ASTM D6890</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <div class="skill-group-title">Autonomous Systems</div>
+      <div class="skill-tags">
+        <span class="skill-tag">ROS 2 (Jazzy)</span>
+        <span class="skill-tag">Nav2</span>
+        <span class="skill-tag">State Estimation</span>
+        <span class="skill-tag">Sensor Fusion (EKF)</span>
+        <span class="skill-tag">PX4</span>
+        <span class="skill-tag">Path Planning</span>
+        <span class="skill-tag">RViz</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <div class="skill-group-title">Machine Learning</div>
+      <div class="skill-tags">
+        <span class="skill-tag">PyTorch</span>
+        <span class="skill-tag">scikit-learn</span>
+        <span class="skill-tag">CNN</span>
+        <span class="skill-tag">ResNet</span>
+        <span class="skill-tag">EfficientNet</span>
+        <span class="skill-tag">SVR</span>
+        <span class="skill-tag">ElasticNet</span>
+        <span class="skill-tag">PLSR</span>
+        <span class="skill-tag">Ensemble ML</span>
+        <span class="skill-tag">Grad-CAM</span>
+        <span class="skill-tag">Optuna</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <div class="skill-group-title">AI &amp; LLM Systems</div>
+      <div class="skill-tags">
+        <span class="skill-tag">RAG Pipelines</span>
+        <span class="skill-tag">MCP Server</span>
+        <span class="skill-tag">LLM Agents</span>
+        <span class="skill-tag">Anthropic API</span>
+        <span class="skill-tag">OpenAI API</span>
+        <span class="skill-tag">Agentic Workflows</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <div class="skill-group-title">Languages &amp; Infrastructure</div>
+      <div class="skill-tags">
+        <span class="skill-tag">Python</span>
+        <span class="skill-tag">MATLAB</span>
+        <span class="skill-tag">FastAPI</span>
+        <span class="skill-tag">Docker</span>
+        <span class="skill-tag">Git</span>
+        <span class="skill-tag">Linux</span>
+        <span class="skill-tag">HPC/SLURM</span>
+        <span class="skill-tag">LaTeX</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="rule">
+
+<!-- PUBLICATIONS -->
+<section id="publications">
+  <div class="section-center fade-up">
+    <div class="sec-eyebrow">Publications</div>
+    <h2 class="sec-title">Selected <em>Work</em></h2>
+  </div>
+  <div class="fade-up fade-up-d1">
+    <div class="pub-year-head">2026</div>
+    <ul class="pub-list">
+      <li class="pub-item">
+        <span class="pub-num">1</span>
+        <div class="pub-body">A. Abraham et al., <span class="pub-title">Physics-Aware Spectral Surrogate Modeling via Indirect Hard Modeling for Fuel Property Prediction.</span> AIAA SciTech 2026. <em>(2 additional AIAA SciTech papers, 2024&ndash;2025)</em></div>
+      </li>
+    </ul>
+    <div class="pub-year-head">2025</div>
+    <ul class="pub-list">
+      <li class="pub-item">
+        <span class="pub-num">2</span>
+        <div class="pub-body">H. Okada, A. Abraham et al., <span class="pub-title">Dispersive NIR Sensor for Real-Time Property Determination.</span> <em>International Journal of Engine Research,</em> 2025.</div>
+      </li>
+      <li class="pub-item">
+        <span class="pub-num">3</span>
+        <div class="pub-body">A. Abraham et al., <span class="pub-title">Functional Group Property Prediction via UNIFAC Surrogates from ATR Spectroscopy.</span> <em>Chemometrics and Intelligent Laboratory Systems,</em> 2025.</div>
+      </li>
+    </ul>
+    <div class="pub-year-head">2024</div>
+    <ul class="pub-list">
+      <li class="pub-item">
+        <span class="pub-num">4</span>
+        <div class="pub-body">A. Abraham et al., <span class="pub-title">SAE Technical Paper 2024-01-4128.</span> SAE International, 2024.</div>
+      </li>
+    </ul>
+    <div class="pub-year-head">2023</div>
+    <ul class="pub-list">
+      <li class="pub-item">
+        <span class="pub-num">5</span>
+        <div class="pub-body">A. Abraham, P. T. Lynch, N. Glumac, <span class="pub-title">On using ab initio calibration to fit temperature from AlO B-X emission.</span> <em>Proceedings of the Combustion Institute</em> 39 (2023), 1249&ndash;1257. <a class="pub-link" href="https://doi.org/10.1016/j.proci.2022.09.050" target="_blank" rel="noopener">DOI</a></div>
+      </li>
+      <li class="pub-item">
+        <span class="pub-num">6</span>
+        <div class="pub-body">A. Abraham et al., Book chapter. <em>Elsevier,</em> 2023.</div>
+      </li>
+    </ul>
+    <div class="pub-year-head">2021</div>
+    <ul class="pub-list">
+      <li class="pub-item">
+        <span class="pub-num">7</span>
+        <div class="pub-body">P. Bansal, A. Abraham et al., <span class="pub-title">Closed-Loop Robotic Control via Fluorescence Microscopy and ML Classification.</span> <em>BioChip Journal,</em> 2021.</div>
+      </li>
+    </ul>
+    <p style="font-size:0.82rem;color:var(--muted);margin-top:1.4rem;font-style:italic;">2 additional manuscripts in preparation.</p>
+  </div>
+</section>
+
+<hr class="rule">
+
+<!-- EDUCATION -->
+<section id="education">
+  <div class="section-center fade-up">
+    <div class="sec-eyebrow">Education</div>
+    <h2 class="sec-title">Academic <em>Background</em></h2>
+  </div>
+  <div class="edu-list fade-up fade-up-d1">
+    <div class="edu-item">
+      <div>
+        <div class="edu-degree">Ph.D., Mechanical and Industrial Engineering</div>
+        <div class="edu-school">University of Illinois Chicago &mdash; Lynch Lab</div>
+      </div>
+      <div class="edu-dates">Jan 2021 &ndash; Aug 2026</div>
+    </div>
+    <div class="edu-item">
+      <div>
+        <div class="edu-degree">M.S., Mechanical Engineering</div>
+        <div class="edu-school">University of Illinois Chicago &mdash; Biomicrosystems Lab</div>
+      </div>
+      <div class="edu-dates">Aug 2018 &ndash; May 2020</div>
+    </div>
+    <div class="edu-item">
+      <div>
+        <div class="edu-degree">B.Tech., Mechanical Engineering</div>
+        <div class="edu-school">Christ University, Bangalore, India</div>
+      </div>
+      <div class="edu-dates">June 2014 &ndash; May 2018</div>
+    </div>
+  </div>
+</section>
+
+<hr class="rule">
+
+<!-- HOBBIES -->
+<section id="hobbies">
+  <div class="section-center fade-up">
+    <div class="sec-eyebrow">Beyond the Lab</div>
+    <h2 class="sec-title">What I Do <em>Otherwise</em></h2>
+  </div>
+  <div class="hobbies-row fade-up fade-up-d1">
+
+    <!-- Wing Chun -->
+    <div class="hobby">
+      <div class="hobby-icon">
+        <svg width="42" height="42" viewBox="0 0 42 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- stylized figure in wing chun horse stance -->
+          <circle cx="21" cy="8" r="4" stroke="#2563EB" stroke-width="1.8"/>
+          <line x1="21" y1="12" x2="21" y2="22" stroke="#2563EB" stroke-width="1.8" stroke-linecap="round"/>
+          <line x1="21" y1="15" x2="13" y2="20" stroke="#2563EB" stroke-width="1.8" stroke-linecap="round"/>
+          <line x1="21" y1="15" x2="30" y2="19" stroke="#2563EB" stroke-width="1.8" stroke-linecap="round"/>
+          <line x1="21" y1="22" x2="15" y2="34" stroke="#2563EB" stroke-width="1.8" stroke-linecap="round"/>
+          <line x1="21" y1="22" x2="27" y2="34" stroke="#2563EB" stroke-width="1.8" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <div class="hobby-name">Martial Arts</div>
+    </div>
+
+    <!-- Reading -->
+    <div class="hobby">
+      <div class="hobby-icon">
+        <svg width="42" height="42" viewBox="0 0 42 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="7" y="8" width="28" height="26" rx="2" stroke="#2563EB" stroke-width="1.8"/>
+          <line x1="21" y1="8" x2="21" y2="34" stroke="#2563EB" stroke-width="1.4"/>
+          <line x1="12" y1="15" x2="19" y2="15" stroke="#2563EB" stroke-width="1.3" stroke-linecap="round"/>
+          <line x1="12" y1="19" x2="19" y2="19" stroke="#2563EB" stroke-width="1.3" stroke-linecap="round"/>
+          <line x1="12" y1="23" x2="19" y2="23" stroke="#2563EB" stroke-width="1.3" stroke-linecap="round"/>
+          <line x1="23" y1="15" x2="30" y2="15" stroke="#2563EB" stroke-width="1.3" stroke-linecap="round"/>
+          <line x1="23" y1="19" x2="30" y2="19" stroke="#2563EB" stroke-width="1.3" stroke-linecap="round"/>
+          <line x1="23" y1="23" x2="30" y2="23" stroke="#2563EB" stroke-width="1.3" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <div class="hobby-name">Reading</div>
+    </div>
+
+    <!-- IoT -->
+    <div class="hobby">
+      <div class="hobby-icon">
+        <svg width="42" height="42" viewBox="0 0 42 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- microcontroller chip -->
+          <rect x="13" y="13" width="16" height="16" rx="2" stroke="#2563EB" stroke-width="1.8"/>
+          <circle cx="21" cy="21" r="3" stroke="#2563EB" stroke-width="1.4"/>
+          <!-- pins left -->
+          <line x1="7" y1="17" x2="13" y2="17" stroke="#2563EB" stroke-width="1.4" stroke-linecap="round"/>
+          <line x1="7" y1="21" x2="13" y2="21" stroke="#2563EB" stroke-width="1.4" stroke-linecap="round"/>
+          <line x1="7" y1="25" x2="13" y2="25" stroke="#2563EB" stroke-width="1.4" stroke-linecap="round"/>
+          <!-- pins right -->
+          <line x1="29" y1="17" x2="35" y2="17" stroke="#2563EB" stroke-width="1.4" stroke-linecap="round"/>
+          <line x1="29" y1="21" x2="35" y2="21" stroke="#2563EB" stroke-width="1.4" stroke-linecap="round"/>
+          <line x1="29" y1="25" x2="35" y2="25" stroke="#2563EB" stroke-width="1.4" stroke-linecap="round"/>
+          <!-- pins top -->
+          <line x1="17" y1="7" x2="17" y2="13" stroke="#2563EB" stroke-width="1.4" stroke-linecap="round"/>
+          <line x1="25" y1="7" x2="25" y2="13" stroke="#2563EB" stroke-width="1.4" stroke-linecap="round"/>
+          <!-- pins bottom -->
+          <line x1="17" y1="29" x2="17" y2="35" stroke="#2563EB" stroke-width="1.4" stroke-linecap="round"/>
+          <line x1="25" y1="29" x2="25" y2="35" stroke="#2563EB" stroke-width="1.4" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <div class="hobby-name">IoT</div>
+    </div>
+
+    <!-- Violin -->
+    <div class="hobby">
+      <div class="hobby-icon">
+        <svg width="42" height="42" viewBox="0 0 42 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- violin body -->
+          <path d="M21 6 C19 6 16 8 16 11 C16 13 17 14 17 16 C17 18 15 19 15 21 C15 23 17 24 17 26 C17 28 16 29 16 31 C16 34 19 36 21 36 C23 36 26 34 26 31 C26 29 25 28 25 26 C25 24 27 23 27 21 C27 19 25 18 25 16 C25 14 26 13 26 11 C26 8 23 6 21 6Z" stroke="#2563EB" stroke-width="1.6" fill="none"/>
+          <!-- strings -->
+          <line x1="21" y1="6" x2="21" y2="36" stroke="#2563EB" stroke-width="0.9" stroke-dasharray="2 2" opacity="0.5"/>
+          <!-- f-holes hint -->
+          <line x1="18.5" y1="20" x2="18.5" y2="23" stroke="#2563EB" stroke-width="1.2" stroke-linecap="round"/>
+          <line x1="23.5" y1="20" x2="23.5" y2="23" stroke="#2563EB" stroke-width="1.2" stroke-linecap="round"/>
+          <!-- bow -->
+          <path d="M30 8 Q35 21 30 34" stroke="#2563EB" stroke-width="1.4" fill="none" stroke-linecap="round"/>
+          <line x1="30" y1="8" x2="30" y2="34" stroke="#2563EB" stroke-width="0.8" opacity="0.4"/>
+        </svg>
+      </div>
+      <div class="hobby-name">Violin</div>
+    </div>
+
+  </div>
+</section>
+
+<hr class="rule">
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-wrap fade-up">
+    <div class="contact-left">
+      <h2 class="contact-hed serif">Let's<br>Connect</h2>
+      <p class="contact-sub">I am always happy to talk about engineering, autonomous systems, research, or anything else. Feel free to reach out.</p>
+    </div>
+    <div class="contact-right">
+      <div class="contact-link-item">
+        <span class="contact-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 7l10 7 10-7"/></svg>
+        </span>
+        <a class="contact-link-val" href="mailto:abhinavka16@gmail.com">Email</a>
+      </div>
+      <div class="contact-link-item">
+        <span class="contact-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="4"/><path d="M7 10v7M7 7v.01M12 17v-4a2 2 0 014 0v4M12 10v7"/></svg>
+        </span>
+        <a class="contact-link-val" href="https://linkedin.com/in/abhinav-abraham" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+      <div class="contact-link-item">
+        <span class="contact-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/></svg>
+        </span>
+        <a class="contact-link-val" href="https://github.com/abhinz16" target="_blank" rel="noopener">GitHub</a>
+      </div>
+      <div class="contact-link-item">
+        <span class="contact-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10l-10-6L2 10l10 6 10-6z"/><path d="M6 12v5c0 1.7 2.7 3 6 3s6-1.3 6-3v-5"/><line x1="22" y1="10" x2="22" y2="16"/></svg>
+        </span>
+        <a class="contact-link-val" href="https://scholar.google.com/citations?user=cmDE23cAAAAJ&hl=en" target="_blank" rel="noopener">Scholar</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  Abhinav Abraham &nbsp;&middot;&nbsp; University of Illinois Chicago &nbsp;&middot;&nbsp; 2026
+</footer>
+
+<script>
+/* ---- HERO CANVAS ANIMATION ---- */
+(function(){
+  const canvas = document.getElementById('hero-canvas');
+  const ctx = canvas.getContext('2d');
+  const wrap = document.getElementById('hero-wrap');
+  let W, H, nodes, mouse = {x:-999, y:-999};
+
+  const COLORS = ['#3B82F6','#60A5FA','#818CF8','#A5B4FC','#38BDF8'];
+  const NODE_COUNT = 60;
+  const CONNECT_DIST = 150;
+  const MOUSE_REPEL = 120;
+
+  function resize(){
+    W = canvas.width = wrap.offsetWidth;
+    H = canvas.height = wrap.offsetHeight;
+  }
+
+  function randColor(){ return COLORS[Math.floor(Math.random()*COLORS.length)]; }
+
+  function initNodes(){
+    nodes = [];
+    for(let i=0;i<NODE_COUNT;i++){
+      const r = Math.random()*2.4+0.8;
+      nodes.push({
+        x: Math.random()*W, y: Math.random()*H,
+        vx: (Math.random()-0.5)*0.5,
+        vy: (Math.random()-0.5)*0.5,
+        r, baseR: r,
+        color: randColor(),
+        pulse: Math.random()*Math.PI*2,
+        pulseSpeed: 0.02+Math.random()*0.02
+      });
+    }
+  }
+
+  function draw(t){
+    ctx.clearRect(0,0,W,H);
+
+    // draw edges
+    for(let i=0;i<nodes.length;i++){
+      for(let j=i+1;j<nodes.length;j++){
+        const a=nodes[i], b=nodes[j];
+        const dx=a.x-b.x, dy=a.y-b.y;
+        const dist=Math.sqrt(dx*dx+dy*dy);
+        if(dist<CONNECT_DIST){
+          const alpha=(1-dist/CONNECT_DIST)*0.45;
+          ctx.beginPath();
+          ctx.strokeStyle=`rgba(100,160,255,${alpha})`;
+          ctx.lineWidth=alpha*1.8;
+          ctx.moveTo(a.x,a.y);
+          ctx.lineTo(b.x,b.y);
+          ctx.stroke();
+        }
+      }
+    }
+
+    // draw nodes with glow + pulse ring
+    nodes.forEach(n=>{
+      n.pulse += n.pulseSpeed;
+      const pulseFactor = 1 + 0.25*Math.sin(n.pulse);
+      const drawR = n.baseR * pulseFactor;
+
+      // outer glow
+      const glowR = drawR*6;
+      const grd = ctx.createRadialGradient(n.x,n.y,drawR,n.x,n.y,glowR);
+      grd.addColorStop(0,'rgba(99,160,255,0.25)');
+      grd.addColorStop(1,'rgba(99,160,255,0)');
+      ctx.beginPath();
+      ctx.arc(n.x,n.y,glowR,0,Math.PI*2);
+      ctx.fillStyle=grd;
+      ctx.fill();
+
+      // pulse ring
+      const ringAlpha = 0.18*(1-Math.abs(Math.sin(n.pulse)));
+      ctx.beginPath();
+      ctx.arc(n.x,n.y,drawR*4,0,Math.PI*2);
+      ctx.strokeStyle=`rgba(147,197,253,${ringAlpha})`;
+      ctx.lineWidth=0.8;
+      ctx.stroke();
+
+      // core dot
+      ctx.beginPath();
+      ctx.arc(n.x,n.y,drawR,0,Math.PI*2);
+      ctx.fillStyle='rgba(200,225,255,0.92)';
+      ctx.fill();
+    });
+  }
+
+  function update(){
+    nodes.forEach(n=>{
+      // mouse repulsion
+      const dx=n.x-mouse.x, dy=n.y-mouse.y;
+      const d=Math.sqrt(dx*dx+dy*dy);
+      if(d<MOUSE_REPEL && d>0){
+        const force=(MOUSE_REPEL-d)/MOUSE_REPEL*0.6;
+        n.vx += (dx/d)*force;
+        n.vy += (dy/d)*force;
+      }
+      // damping
+      n.vx *= 0.97; n.vy *= 0.97;
+      // clamp speed
+      const speed=Math.sqrt(n.vx*n.vx+n.vy*n.vy);
+      if(speed>1.2){ n.vx=(n.vx/speed)*1.2; n.vy=(n.vy/speed)*1.2; }
+
+      n.x+=n.vx; n.y+=n.vy;
+      if(n.x<0){n.x=0;n.vx*=-1;}
+      if(n.x>W){n.x=W;n.vx*=-1;}
+      if(n.y<0){n.y=0;n.vy*=-1;}
+      if(n.y>H){n.y=H;n.vy*=-1;}
+    });
+  }
+
+  let raf;
+  function loop(t){ update(); draw(t); raf=requestAnimationFrame(loop); }
+
+  window.addEventListener('resize',()=>{ resize(); });
+  wrap.addEventListener('mousemove',e=>{
+    const r=wrap.getBoundingClientRect();
+    mouse.x=e.clientX-r.left; mouse.y=e.clientY-r.top;
+  });
+  wrap.addEventListener('mouseleave',()=>{ mouse.x=-999; mouse.y=-999; });
+
+  resize(); initNodes(); loop(0);
+})();
+
+/* ---- SUBTITLE CYCLING ---- */
+(function(){
+  const el = document.getElementById('hero-role-text');
+  if(!el) return;
+  const phrases = [
+    'Autonomous Systems - AI - Robotics - Engineering',
+    'AI - Robotics - Chemistry - Autonomous Systems',
+    'Robotics - Engineering - AI - Autonomous Systems',
+    'Chemistry - Autonomous Systems - AI - Robotics'
+  ];
+  let idx = 0;
+  el.style.transition = 'opacity 0.45s ease, transform 0.45s ease';
+  setInterval(()=>{
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(10px)';
+    setTimeout(()=>{
+      idx = (idx+1) % phrases.length;
+      el.textContent = phrases[idx];
+      el.style.opacity = '1';
+      el.style.transform = 'translateY(0)';
+    }, 450);
+  }, 3200);
+})();
+
+/* ---- SCROLL FADE-UP ---- */
+const fadeEls = document.querySelectorAll('.fade-up');
+const obs = new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('visible'); obs.unobserve(e.target); } });
+},{ threshold:0.07 });
+fadeEls.forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>
